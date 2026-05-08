@@ -1,0 +1,276 @@
+:root {
+    --dark-jungle: #0a211b;
+    --royal-gold: #b8860b;
+    --leaf-green: #2e5a1c;
+    --parchment: #f4f1ea;
+    --envelope-color: #1a3c34;
+    --transition-speed: 0.5s;
+}
+
+body {
+    margin: 0;
+    background: #111 url('https://www.transparenttextures.com/patterns/dark-matter.png');
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Previene scroll durante la animación inicial */
+    transition: background-color var(--transition-speed) ease;
+}
+
+/* SOBRE (ENVELOPE) - Corrección de Transición */
+.envelope-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform var(--transition-speed) ease, opacity var(--transition-speed) ease;
+    z-index: 2;
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: var(--envelope-color);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease;
+}
+
+.flap {
+    position: absolute;
+    top: 0;
+    width: 0; height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 100px solid #142e28;
+    z-index: 3;
+    transition: transform 0.4s ease;
+    transform-origin: top;
+}
+
+.pocket {
+    position: absolute;
+    bottom: 0;
+    width: 0; height: 0;
+    border-left: 150px solid #234d43;
+    border-right: 150px solid #234d43;
+    border-bottom: 100px solid #1a3c34;
+    z-index: 2;
+}
+
+.letter-pre {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 280px;
+    height: 180px;
+    background: var(--parchment);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.seal {
+    font-size: 3rem;
+    filter: grayscale(0.2) drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
+    transition: opacity 0.3s ease;
+}
+
+.open-btn {
+    margin-top: 40px;
+    background: var(--royal-gold);
+    border: none;
+    padding: 15px 30px;
+    color: white;
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    transition: background 0.3s ease;
+}
+
+.open-btn:hover {
+    background-color: #966d09;
+}
+
+/* ESTADOS DE ANIMACIÓN DEL SOBRE */
+.envelope.open .flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .letter-pre {
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+/* INVITACION CARD (Corregido y Refinado) */
+.invitation-container {
+    position: relative;
+    z-index: 1;
+    display: block; /* Asegura que ocupe espacio */
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.invitation-container.hidden {
+    display: none; /* Oculto al inicio */
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+/* Estilo para cuando emerge la invitación */
+.invitation-container.fade-in {
+    display: block;
+    animation: emergeInvitation 0.8s ease-out forwards;
+}
+
+.invitation-card {
+    background: var(--parchment);
+    width: 90vw;
+    max-width: 450px;
+    padding: 20px;
+    border: 12px solid var(--dark-jungle);
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+}
+
+.border-inner {
+    border: 2px solid var(--royal-gold);
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.jungle-title {
+    font-family: 'Cinzel', serif;
+    color: var(--dark-jungle);
+    letter-spacing: 5px;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.baby-name {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 2.8rem;
+    color: var(--royal-gold);
+    margin: 10px 0;
+}
+
+.tagline {
+    font-size: 0.75rem;
+    letter-spacing: 5px;
+    font-weight: 600;
+    color: var(--leaf-green);
+    margin-bottom: 5px;
+}
+
+.lion-divider {
+    margin: 20px 0;
+}
+
+.lion-icon {
+    width: 100px; /* Ajuste de tamaño profesional */
+    filter: drop-shadow(4px 4px 10px rgba(0,0,0,0.3));
+}
+
+.menu-btn {
+    width: 100%;
+    background: none;
+    border: 1px solid var(--royal-gold);
+    padding: 12px;
+    margin: 10px 0;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    color: var(--dark-jungle);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.menu-btn:hover {
+    background: var(--royal-gold);
+    color: white;
+}
+
+.phrase {
+    font-style: italic;
+    color: var(--dark-jungle);
+    margin-top: 25px;
+}
+
+.btn-location {
+    background: var(--dark-jungle);
+    color: white;
+    width: 100%;
+    padding: 15px;
+    border: 2px solid var(--royal-gold);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s ease;
+}
+
+.btn-location:hover {
+    background-color: var(--leaf-green);
+}
+
+/* MODALES (Refinados) */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 10;
+    justify-content: center; align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active { 
+    display: flex; 
+    opacity: 1;
+}
+
+.modal-content {
+    background: var(--parchment);
+    padding: 40px;
+    border: 5px solid var(--royal-gold);
+    text-align: center;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: var(--royal-gold);
+    cursor: pointer;
+}
+
+.modal-title { font-family: 'Cinzel', serif; color: var(--royal-gold); margin-top: 0; }
+.details-text p { color: var(--dark-jungle); font-size: 1.1rem; }
+.details-text .time { font-weight: 700; font-size: 1.3rem; }
+.details-text .subtext { font-size: 0.9rem; font-style: italic; color: var(--leaf-green); }
+
+/* ANIMACIONES */
+@keyframes emergeInvitation {
+    0% { opacity: 0; transform: translateY(50px) scale(0.9); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animation-float {
+    animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invitación Real - Víctor José Manuel</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- PANTALLA INICIAL: EL SOBRE (Mejorado) -->
+    <div class="envelope-container" id="envelope-container">
+      <div class="envelope" id="envelope">
+        <div class="flap"></div>
+        <div class="pocket"></div>
+        <div class="letter-pre" id="pre-letter">
+          <div class="seal">🦁</div>
+        </div>
+      </div>
+      <button class="open-btn" id="open-btn">ABRIR INVITACIÓN REAL</button>
+    </div>
+
+    <div class="invitation-container hidden" id="main-content">
+      <div class="invitation-card">
+        <div class="border-inner">
+          <header>
+            <p class="tagline">EL CICLO DE LA VIDA CONTINÚA...</p>
+            <h1 class="jungle-title">BABY SHOWER</h1>
+            <h2 class="baby-name">Víctor José Manuel</h2>
+          </header>
+
+          <div class="lion-divider">
+            <img
+              src="https://img.icons8.com/color/144/lion.png"
+              alt="León Real"
+              class="lion-icon animation-float"
+            />
+          </div>
+
+          <div class="interactive-menu">
+            <button class="menu-btn" data-modal="modal-cuando">
+              <i class="fas fa-calendar-day"></i> CUÁNDO
+            </button>
+            <button class="menu-btn" data-modal="modal-donde">
+              <i class="fas fa-map-marker-alt"></i> DÓNDE
+            </button>
+          </div>
+
+          <footer>
+            <p class="phrase">"Una nueva aventura comienza"</p>
+            <button
+              class="btn-location highlight"
+              onclick="
+                window.open(
+                  'https://maps.app.goo.gl/mBrbB4YQF7fLUjnF9',
+                  '_blank',
+                )
+              "
+            >
+              UBICACIÓN EN GOOGLE MAPS
+            </button>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-cuando" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3 class="modal-title">¡Guarda la fecha!</h3>
+        <div class="details-text">
+          <p>Sábado, 06 de Junio</p>
+          <p class="time">5:00 PM</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-donde" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3 class="modal-title">El Oasis</h3>
+        <div class="details-text">
+          <p>Ubicado en Chiclayo</p>
+          <p class="subtext">Acompáñanos en esta celebración real.</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
